@@ -74,11 +74,9 @@ public class InitDb {
             Member member3 = createMember("userC", "경기", "3", "3333");
             em.persist(member3);
 
-            Reservation reservation1 = Reservation.createReserve(member2, book1);
-            Reservation reservation2 = Reservation.createReserve(member3, book1);
+            Reservation reservation = Reservation.createReserve(member3, book1);
 
-            em.persist(reservation1);
-            em.persist(reservation2);
+            em.persist(reservation);
         }
 
 

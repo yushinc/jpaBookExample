@@ -34,6 +34,7 @@ public class Reservation {
         reservation.setMember(member);
         reservation.setBook(book);
         reservation.setReserveDate(LocalDate.now());
+        book.setIsReserve(true); // 해당 책의 예약 상태 변경
 
         return reservation;
     }

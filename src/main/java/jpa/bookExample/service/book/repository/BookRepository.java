@@ -30,4 +30,12 @@ public class BookRepository {
                 .getResultList();
     }
 
+    // 책 개별 조회
+    public Book findById(Long bookId) {
+        return em.createQuery(
+                "select b from Book b" +
+                        " where b.id = :bookId", Book.class)
+                .setParameter("bookId", bookId)
+                .getSingleResult();
+    }
 }

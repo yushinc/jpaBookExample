@@ -34,7 +34,7 @@ public class Loan {
 
 
 
-    // 대출하기 메소드
+    // 대출하기 메소드 (InitDb에서 사용)
     public static Loan createLoan(Member member, Book book) {
         Loan loan = new Loan();
         loan.setLoanDate(LocalDate.now());
@@ -44,12 +44,6 @@ public class Loan {
         book.setIsLoan(true);
 
         return loan;
-    }
-
-    // 반납하기 메소드
-    public void returnLoan(Long bookId, Long memberId) {
-
-        this.setReturnDate(LocalDate.now());
     }
 
 }

@@ -12,10 +12,7 @@ import jpa.bookExample.service.member.domain.Loan;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -93,6 +90,15 @@ public class apiController {
         bookService.returnBook(bookId, memberId);
         return "반납되었습니다.";
     }
+
+    // 책 대출하기
+    @PostMapping("api/members/{memberId}/loans/{bookId}")
+    public String loanBook(@PathVariable(value="memberId") Long memberId,
+                           @PathVariable(value="bookId") Long bookId) {
+
+        return bookService.loanBook(memberId, bookId); // 결과 string 리턴
+    }
+
 
     @Data
     @AllArgsConstructor
